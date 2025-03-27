@@ -4,10 +4,39 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 
 const StaffingSolutionsSection = () => {
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariant = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
+
   return (
     <section id="staffing-solutions" className="py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Staffing solutions for <span className="text-red-500 italic">all of your needs</span>
@@ -16,16 +45,19 @@ const StaffingSolutionsSection = () => {
               Fill any gaps with temporary staff while you find quality candidates for permanent roles.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <motion.div 
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
+        >
           {/* Short-term temporary workers */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all"
+            variants={itemVariant}
+            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300"
           >
             <div className="mb-6">
               <Clock className="w-12 h-12 text-white/90" />
@@ -45,11 +77,8 @@ const StaffingSolutionsSection = () => {
 
           {/* Long-term temporary workers */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all"
+            variants={itemVariant}
+            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300"
           >
             <div className="mb-6">
               <History className="w-12 h-12 text-white/90" />
@@ -69,11 +98,8 @@ const StaffingSolutionsSection = () => {
 
           {/* Permanent workers */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all"
+            variants={itemVariant}
+            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300"
           >
             <div className="mb-6">
               <Handshake className="w-12 h-12 text-white/90" />
@@ -90,7 +116,7 @@ const StaffingSolutionsSection = () => {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
