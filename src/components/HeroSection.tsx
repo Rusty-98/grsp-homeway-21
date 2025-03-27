@@ -1,8 +1,10 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [count, setCount] = useState(0);
+  const targetCount = 10000;
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,6 +29,30 @@ const HeroSection = () => {
       heroElements?.forEach((el) => observer.unobserve(el));
     };
   }, []);
+  
+  // Counter animation
+  useEffect(() => {
+    if (count < targetCount) {
+      const animationDuration = 2000; // 2 seconds
+      const totalSteps = 50; // Number of steps to reach the target
+      const stepValue = Math.floor(targetCount / totalSteps);
+      const stepDuration = animationDuration / totalSteps;
+      
+      const timer = setTimeout(() => {
+        const nextCount = Math.min(count + stepValue, targetCount);
+        setCount(nextCount);
+      }, stepDuration);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [count]);
+  
+  const companies = [
+    'Microsoft', 'Google', 'Amazon', 'Apple', 'Meta', 'Netflix', 'Dropbox', 
+    'Spotify', 'Airbnb', 'Uber', 'Lyft', 'Twitter', 'LinkedIn', 'Slack'
+  ];
+  
+  const duplicatedCompanies = [...companies, ...companies]; // Duplicate for seamless loop
   
   return (
     <section className="pt-28 pb-20 md:pt-36 md:pb-32 hero-gradient w-full" ref={heroRef}>
@@ -58,13 +84,12 @@ const HeroSection = () => {
                       key={i}
                       className="w-8 h-8 rounded-full border-2 border-white bg-grsp-gray flex items-center justify-center text-xs font-medium overflow-hidden"
                     >
-                      {/* User avatar placeholders */}
                       <span className="text-grsp-darkblue">{`U${i}`}</span>
                     </div>
                   ))}
                 </div>
                 <div className="text-sm text-grsp-darkgray">
-                  <span className="font-semibold">10,000+</span> users joined this month
+                  <span className="font-semibold number-animate">{count.toLocaleString()}+</span> users joined this month
                 </div>
               </div>
             </div>
@@ -88,17 +113,19 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Trusted by section */}
+        {/* Trusted by section with marquee */}
         <div className="hero-animate mt-20 text-center">
           <p className="text-sm uppercase text-grsp-darkgray font-medium tracking-wider mb-8">
             Trusted by leading companies
           </p>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
-            {['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5'].map((company, i) => (
-              <div key={i} className="text-grsp-darkgray/60 font-semibold text-xl">
-                {company}
-              </div>
-            ))}
+          <div className="marquee-container">
+            <div className="marquee-content">
+              {duplicatedCompanies.map((company, i) => (
+                <div key={i} className="inline-block mx-6 text-grsp-darkgray/80 font-semibold text-xl">
+                  {company}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

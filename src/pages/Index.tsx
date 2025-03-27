@@ -31,6 +31,12 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
+    // Force all animations to finish to prevent content from disappearing
+    const allAnimatedElements = document.querySelectorAll('.hero-animate, .feature-animate, .business-animate');
+    allAnimatedElements.forEach(el => {
+      el.classList.add('opacity-100');
+    });
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
     };
