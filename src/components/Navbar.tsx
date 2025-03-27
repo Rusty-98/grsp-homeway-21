@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +18,10 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
+
+  const handleNavItemClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -35,14 +40,14 @@ const Navbar = () => {
             </span>
           </a>
           
-          <div className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1">
             <a href="#features" className="nav-item">Features</a>
             <a href="#performance" className="nav-item">Performance</a>
             <a href="#testimonials" className="nav-item">Testimonials</a>
             <a href="#team" className="nav-item">Team Members</a>
             <a href="#comparison" className="nav-item">Comparison</a>
             <a href="#business" className="nav-item">For Business</a>
-          </div>
+          </nav>
           
           <div className="hidden md:flex items-center space-x-4">
             <button className="px-4 py-2 text-grsp-blue font-medium hover:text-grsp-darkblue transition-colors">
@@ -56,6 +61,7 @@ const Navbar = () => {
           <button
             className="md:hidden text-grsp-darkblue"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,67 +84,72 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
-      <div 
-        className={cn(
-          "md:hidden fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+      {/* Mobile menu with animation */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="md:hidden fixed inset-0 z-50 bg-white" 
+            style={{ top: '60px' }}
+          >
+            <nav className="flex flex-col p-4 space-y-4">
+              <a 
+                href="#features" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                Features
+              </a>
+              <a 
+                href="#performance" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                Performance
+              </a>
+              <a 
+                href="#testimonials" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                Testimonials
+              </a>
+              <a 
+                href="#team" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                Team Members
+              </a>
+              <a 
+                href="#comparison" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                Comparison
+              </a>
+              <a 
+                href="#business" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                For Business
+              </a>
+              <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">
+                <button className="w-full px-4 py-3 text-grsp-blue font-medium border border-grsp-blue rounded-md hover:bg-grsp-blue/5 transition-colors">
+                  Log in
+                </button>
+                <button className="w-full px-4 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors">
+                  Sign up
+                </button>
+              </div>
+            </nav>
+          </motion.div>
         )}
-        style={{ top: '60px' }}
-      >
-        <div className="flex flex-col p-4 space-y-4">
-          <a 
-            href="#features" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Features
-          </a>
-          <a 
-            href="#performance" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Performance
-          </a>
-          <a 
-            href="#testimonials" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Testimonials
-          </a>
-          <a 
-            href="#team" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Team Members
-          </a>
-          <a 
-            href="#comparison" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Comparison
-          </a>
-          <a 
-            href="#business" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            For Business
-          </a>
-          <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">
-            <button className="w-full px-4 py-3 text-grsp-blue font-medium border border-grsp-blue rounded-md">
-              Log in
-            </button>
-            <button className="w-full px-4 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md">
-              Sign up
-            </button>
-          </div>
-        </div>
-      </div>
+      </AnimatePresence>
     </header>
   );
 };

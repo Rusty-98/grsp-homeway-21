@@ -61,20 +61,20 @@ const HeroSection = () => {
           <div className="w-full lg:w-1/2 mb-12 lg:mb-0 lg:pr-8">
             <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
               <span className="hero-animate inline-block px-3 py-1 bg-grsp-blue/10 text-grsp-blue rounded-full text-sm font-medium mb-4">
-                Connecting Talent with Opportunity
+                Premium Business Staffing Solution
               </span>
               <h1 className="hero-animate text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                Find Flexible Work <span className="bg-gradient-to-r from-grsp-blue to-grsp-darkblue bg-clip-text text-transparent">That Fits Your Life</span>
+                Connect with <span className="bg-gradient-to-r from-grsp-blue to-grsp-darkblue bg-clip-text text-transparent">reliable, vetted workers instantly</span>
               </h1>
               <p className="hero-animate text-lg md:text-xl text-grsp-darkgray mb-8">
-                GRSP connects you with local jobs that match your skills and schedule. Discover better opportunities and gain control over your work life.
+                GRSP matches you with skilled workers for temporary or permanent positions so you are never short staffed.
               </p>
               <div className="hero-animate flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                 <button className="px-8 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition">
                   Get Started
                 </button>
                 <button className="px-8 py-3 border border-grsp-blue text-grsp-blue rounded-md font-medium hover:bg-grsp-blue/5 transition-colors">
-                  Learn More
+                  Get Demo
                 </button>
               </div>
               <div className="hero-animate mt-8 flex items-center justify-center lg:justify-start space-x-4">
@@ -89,7 +89,7 @@ const HeroSection = () => {
                   ))}
                 </div>
                 <div className="text-sm text-grsp-darkgray">
-                  <span className="font-semibold number-animate">{count.toLocaleString()}+</span> users joined this month
+                  <span className="font-semibold number-animate">{count.toLocaleString()}+</span> businesses served this month
                 </div>
               </div>
             </div>
@@ -99,12 +99,22 @@ const HeroSection = () => {
             <div className="hero-animate relative z-10 rounded-xl overflow-hidden shadow-2xl">
               <div className="aspect-w-16 aspect-h-9">
                 <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=2000&q=80" 
-                  alt="GRSP Platform Interface" 
+                  src="/lovable-uploads/5a732f21-797b-4702-9ea8-df838714336e.png" 
+                  alt="Professional chefs working in a kitchen" 
                   className="object-cover w-full h-full"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent rounded-xl"></div>
+            </div>
+            
+            {/* Ready to experience tag */}
+            <div className="hero-animate absolute -top-10 -right-5 md:top-5 md:right-5 z-20 bg-white p-5 rounded-lg shadow-xl transform rotate-3 max-w-xs">
+              <h3 className="text-2xl font-bold text-slate-800">Ready to experience</h3>
+              <p className="text-2xl font-bold italic text-red-500">the GRSP difference?</p>
+              <div className="flex gap-3 mt-3">
+                <span className="text-xs px-2 py-1 bg-blue-500 text-white rounded-full">Sign Up</span>
+                <span className="text-xs px-2 py-1 border border-slate-300 rounded-full">Get Demo</span>
+              </div>
             </div>
             
             {/* Decorative elements */}

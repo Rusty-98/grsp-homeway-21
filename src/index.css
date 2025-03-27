@@ -108,7 +108,7 @@
 
 @layer components {
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
+    @apply bg-white/90 backdrop-blur-md border border-white/20;
   }
   
   .hero-gradient {
@@ -257,3 +257,26 @@
 .number-animate {
   display: inline-block;
 }
+
+/* Fix z-index issues */
+.fixed {
+  z-index: 100;
+}
+
+.carousel-prev,
+.carousel-next {
+  z-index: 10;
+}
+
+/* Fix image sizing */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Fix mobile menu issues */
+.transform {
+  will-change: transform;
+}
+

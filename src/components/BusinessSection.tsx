@@ -138,14 +138,14 @@ const BusinessSection = () => {
         <div className="mt-24">
           <div className="text-center mb-12">
             <h2 className="business-animate opacity-0 text-3xl md:text-4xl font-bold mb-4">
-              Get in Touch with Us
+              Schedule a Consultation
             </h2>
             <p className="business-animate opacity-0 text-grsp-darkgray text-lg max-w-2xl mx-auto">
-              Have questions about how GRSP can help your business? Fill out the form below and we'll get back to you shortly.
+              Discover how GRSP can revolutionize your staffing approach and help your business thrive.
             </p>
           </div>
           
-          <div className="max-w-xl mx-auto business-animate opacity-0">
+          <div className="max-w-5xl mx-auto business-animate opacity-0">
             <ContactForm />
           </div>
         </div>
