@@ -10,6 +10,7 @@ import PerformanceStats from '@/components/PerformanceStats';
 import TeamMemberSection from '@/components/TeamMemberSection';
 import ComparisonSection from '@/components/ComparisonSection';
 import TrustedCompaniesMarquee from '@/components/TrustedCompaniesMarquee';
+import StaffingSolutionsSection from '@/components/StaffingSolutionsSection';
 
 const Index = () => {
   // Smooth scroll behavior for anchor links
@@ -53,6 +54,7 @@ const Index = () => {
         <HeroSection />
         <TrustedCompaniesMarquee />
         <FeatureSection />
+        <StaffingSolutionsSection />
         <PerformanceStats />
         <TestimonialsCarousel />
         <TeamMemberSection />

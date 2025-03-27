@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -34,19 +35,20 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold bg-gradient-to-r from-grsp-blue to-grsp-darkblue bg-clip-text text-transparent">
               GRSP
             </span>
-          </a>
+          </Link>
           
           <nav className="hidden md:flex items-center space-x-1">
-            <a href="#features" className="nav-item">Features</a>
-            <a href="#performance" className="nav-item">Performance</a>
-            <a href="#testimonials" className="nav-item">Testimonials</a>
-            <a href="#team" className="nav-item">Team Members</a>
-            <a href="#comparison" className="nav-item">Comparison</a>
-            <a href="#business" className="nav-item">For Business</a>
+            <Link to="/#features" className="nav-item">Features</Link>
+            <Link to="/#performance" className="nav-item">Performance</Link>
+            <Link to="/#testimonials" className="nav-item">Testimonials</Link>
+            <Link to="/#team" className="nav-item">Team Members</Link>
+            <Link to="/#comparison" className="nav-item">Comparison</Link>
+            <Link to="/#business" className="nav-item">For Business</Link>
+            <Link to="/about" className="nav-item">About Us</Link>
           </nav>
           
           <div className="hidden md:flex items-center space-x-4">
@@ -96,48 +98,55 @@ const Navbar = () => {
             style={{ top: '60px' }}
           >
             <nav className="flex flex-col p-4 space-y-4">
-              <a 
-                href="#features" 
+              <Link 
+                to="/#features" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
                 onClick={handleNavItemClick}
               >
                 Features
-              </a>
-              <a 
-                href="#performance" 
+              </Link>
+              <Link 
+                to="/#performance" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
                 onClick={handleNavItemClick}
               >
                 Performance
-              </a>
-              <a 
-                href="#testimonials" 
+              </Link>
+              <Link 
+                to="/#testimonials" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
                 onClick={handleNavItemClick}
               >
                 Testimonials
-              </a>
-              <a 
-                href="#team" 
+              </Link>
+              <Link 
+                to="/#team" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
                 onClick={handleNavItemClick}
               >
                 Team Members
-              </a>
-              <a 
-                href="#comparison" 
+              </Link>
+              <Link 
+                to="/#comparison" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
                 onClick={handleNavItemClick}
               >
                 Comparison
-              </a>
-              <a 
-                href="#business" 
+              </Link>
+              <Link 
+                to="/#business" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
                 onClick={handleNavItemClick}
               >
                 For Business
-              </a>
+              </Link>
+              <Link 
+                to="/about" 
+                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+                onClick={handleNavItemClick}
+              >
+                About Us
+              </Link>
               <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">
                 <button className="w-full px-4 py-3 text-grsp-blue font-medium border border-grsp-blue rounded-md hover:bg-grsp-blue/5 transition-colors">
                   Log in
