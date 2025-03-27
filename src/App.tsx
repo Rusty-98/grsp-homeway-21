@@ -7,12 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import LoaderAnimation from "./components/LoaderAnimation";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <LoaderAnimation />
       <Toaster />
       <Sonner />
       <BrowserRouter>
