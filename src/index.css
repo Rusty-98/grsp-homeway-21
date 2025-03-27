@@ -91,6 +91,11 @@
     @apply border-border;
   }
 
+  html, body, #root {
+    @apply w-full h-full overflow-x-hidden;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -156,11 +161,11 @@
 
 /* Carousel styles */
 .carousel-container {
-  @apply overflow-hidden relative;
+  @apply overflow-hidden relative w-full;
 }
 
 .carousel-track {
-  @apply flex transition-transform duration-500 ease-out;
+  @apply flex transition-transform duration-500 ease-out w-full;
 }
 
 .carousel-slide {
@@ -190,6 +195,23 @@
 .staggered-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
 .staggered-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
 .staggered-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Fix for disappearing content on scroll */
+.animate-fade-in, .animate-scale-in {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+/* Prevent elements from disappearing */
+.hero-animate, .feature-animate {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  opacity: 1 !important; /* Force visibility */
+}
+
+.hero-gradient {
+  overflow: visible;
+}
 
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(20px); }

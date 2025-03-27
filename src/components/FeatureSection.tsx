@@ -71,12 +71,16 @@ const FeatureSection = () => {
             elements.forEach((el, index) => {
               setTimeout(() => {
                 el.classList.add('animate-scale-in');
+                // Ensure element remains visible
+                setTimeout(() => {
+                  el.classList.add('opacity-100');
+                }, 600);
               }, index * 100);
             });
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
     );
     
     if (sectionRef.current) {
@@ -91,16 +95,16 @@ const FeatureSection = () => {
   }, []);
   
   return (
-    <section id="features" className="section-spacing bg-white" ref={sectionRef}>
+    <section id="features" className="section-spacing bg-white w-full" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="feature-animate opacity-0 inline-block px-3 py-1 bg-grsp-blue/10 text-grsp-blue rounded-full text-sm font-medium mb-4">
+          <span className="feature-animate inline-block px-3 py-1 bg-grsp-blue/10 text-grsp-blue rounded-full text-sm font-medium mb-4">
             Our Features
           </span>
-          <h2 className="feature-animate opacity-0 text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="feature-animate text-3xl md:text-4xl font-bold mb-4">
             Why Choose GRSP For Your Next Opportunity
           </h2>
-          <p className="feature-animate opacity-0 text-grsp-darkgray text-lg">
+          <p className="feature-animate text-grsp-darkgray text-lg">
             We've built a platform that makes finding flexible work simple and rewarding.
           </p>
         </div>
@@ -109,7 +113,7 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="feature-animate opacity-0 bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              className="feature-animate bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
             >
               <div className="w-12 h-12 bg-grsp-blue/10 rounded-lg text-grsp-blue flex items-center justify-center mb-4">
                 {feature.icon}
@@ -121,7 +125,7 @@ const FeatureSection = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <button className="feature-animate opacity-0 px-8 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition">
+          <button className="feature-animate px-8 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition">
             Explore All Features
           </button>
         </div>
