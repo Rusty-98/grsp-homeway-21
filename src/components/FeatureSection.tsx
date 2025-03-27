@@ -119,7 +119,7 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="feature-animate feature-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all"
+              className="feature-animate feature-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all transform hover:-translate-y-2 duration-300"
               style={{ background: feature.gradient }}
             >
               <div className="w-12 h-12 bg-white rounded-lg text-grsp-blue flex items-center justify-center mb-4 shadow-sm">

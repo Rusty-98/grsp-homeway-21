@@ -6,6 +6,10 @@ import FeatureSection from '@/components/FeatureSection';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import BusinessSection from '@/components/BusinessSection';
 import Footer from '@/components/Footer';
+import PerformanceStats from '@/components/PerformanceStats';
+import TeamMemberSection from '@/components/TeamMemberSection';
+import ComparisonSection from '@/components/ComparisonSection';
+import TrustedCompaniesMarquee from '@/components/TrustedCompaniesMarquee';
 
 const Index = () => {
   // Smooth scroll behavior for anchor links
@@ -32,7 +36,7 @@ const Index = () => {
     document.addEventListener('click', handleAnchorClick);
     
     // Force all animations to finish to prevent content from disappearing
-    const allAnimatedElements = document.querySelectorAll('.hero-animate, .feature-animate, .business-animate');
+    const allAnimatedElements = document.querySelectorAll('.hero-animate, .feature-animate, .business-animate, .stat-animate, .team-animate, .comparison-animate');
     allAnimatedElements.forEach(el => {
       el.classList.add('opacity-100');
     });
@@ -47,8 +51,12 @@ const Index = () => {
       <Navbar />
       <main className="w-full">
         <HeroSection />
+        <TrustedCompaniesMarquee />
         <FeatureSection />
+        <PerformanceStats />
         <TestimonialsCarousel />
+        <TeamMemberSection />
+        <ComparisonSection />
         <BusinessSection />
       </main>
       <Footer />

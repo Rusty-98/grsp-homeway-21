@@ -37,10 +37,11 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center space-x-1">
             <a href="#features" className="nav-item">Features</a>
+            <a href="#performance" className="nav-item">Performance</a>
             <a href="#testimonials" className="nav-item">Testimonials</a>
+            <a href="#team" className="nav-item">Team Members</a>
+            <a href="#comparison" className="nav-item">Comparison</a>
             <a href="#business" className="nav-item">For Business</a>
-            <a href="#pricing" className="nav-item">Pricing</a>
-            <a href="#contact" className="nav-item">Contact</a>
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
@@ -94,6 +95,13 @@ const Navbar = () => {
             Features
           </a>
           <a 
+            href="#performance" 
+            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Performance
+          </a>
+          <a 
             href="#testimonials" 
             className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
             onClick={() => setMobileMenuOpen(false)}
@@ -101,25 +109,25 @@ const Navbar = () => {
             Testimonials
           </a>
           <a 
+            href="#team" 
+            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Team Members
+          </a>
+          <a 
+            href="#comparison" 
+            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Comparison
+          </a>
+          <a 
             href="#business" 
             className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
             onClick={() => setMobileMenuOpen(false)}
           >
             For Business
-          </a>
-          <a 
-            href="#pricing" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Pricing
-          </a>
-          <a 
-            href="#contact" 
-            className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contact
           </a>
           <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">
             <button className="w-full px-4 py-3 text-grsp-blue font-medium border border-grsp-blue rounded-md">
