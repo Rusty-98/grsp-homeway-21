@@ -1,5 +1,6 @@
 
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -53,6 +54,12 @@ const HeroSection = () => {
   ];
   
   const duplicatedCompanies = [...companies, ...companies]; // Duplicate for seamless loop
+  
+  const testimonials = [
+    { name: "John Smith", role: "HR Director", company: "TechGiant", comment: "Changed how we staff our events completely!" },
+    { name: "Sarah Jones", role: "Operations Manager", company: "FoodCorp", comment: "Found reliable staff within hours!" },
+    { name: "Michael Chen", role: "Store Manager", company: "RetailPlus", comment: "Quality workers every single time." }
+  ];
   
   return (
     <section className="pt-28 pb-20 md:pt-36 md:pb-32 hero-gradient w-full" ref={heroRef}>
@@ -116,6 +123,65 @@ const HeroSection = () => {
                 <span className="text-xs px-2 py-1 border border-slate-300 rounded-full">Get Demo</span>
               </div>
             </div>
+            
+            {/* Testimonial floating elements */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="hero-animate absolute -left-10 top-1/3 z-20 bg-white p-3 rounded-lg shadow-lg max-w-[200px] animate-float-slow"
+            >
+              <div className="flex items-start">
+                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-2 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-gray-800">{testimonials[0].comment}</p>
+                  <p className="text-xs text-grsp-darkgray mt-1">{testimonials[0].name}</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="hero-animate absolute -bottom-5 right-10 z-20 bg-white p-3 rounded-lg shadow-lg max-w-[200px] animate-float-slow-2"
+            >
+              <div className="flex items-start">
+                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-2 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-gray-800">{testimonials[1].comment}</p>
+                  <p className="text-xs text-grsp-darkgray mt-1">{testimonials[1].name}</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Live stats floating element */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.1, duration: 0.5 }}
+              className="hero-animate absolute top-1/4 -right-5 z-20 bg-white p-3 rounded-lg shadow-lg animate-float-slow-3"
+            >
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs font-medium">Live Now</p>
+                  <p className="text-xs text-grsp-darkgray">283 workers available</p>
+                </div>
+              </div>
+            </motion.div>
             
             {/* Decorative elements */}
             <div className="hero-animate absolute -top-8 -right-8 w-40 h-40 bg-grsp-blue/10 rounded-full blur-2xl"></div>

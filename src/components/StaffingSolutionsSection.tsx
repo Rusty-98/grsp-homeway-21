@@ -57,9 +57,15 @@ const StaffingSolutionsSection = () => {
           {/* Short-term temporary workers */}
           <motion.div 
             variants={itemVariant}
-            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300"
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+              backgroundColor: "#3b82f6"
+            }}
+            transition={{ duration: 0.3 }}
+            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg transition-all duration-300 transform cursor-pointer"
           >
-            <div className="mb-6">
+            <div className="mb-6 transition-transform duration-300 group-hover:scale-110">
               <Clock className="w-12 h-12 text-white/90" />
             </div>
             <h3 className="text-2xl font-bold mb-3">Short-term temporary workers</h3>
@@ -78,9 +84,15 @@ const StaffingSolutionsSection = () => {
           {/* Long-term temporary workers */}
           <motion.div 
             variants={itemVariant}
-            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300"
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+              backgroundColor: "#3b82f6" 
+            }}
+            transition={{ duration: 0.3 }}
+            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg transition-all duration-300 transform cursor-pointer"
           >
-            <div className="mb-6">
+            <div className="mb-6 transition-transform duration-300 group-hover:scale-110">
               <History className="w-12 h-12 text-white/90" />
             </div>
             <h3 className="text-2xl font-bold mb-3">Long-term temporary workers</h3>
@@ -99,9 +111,15 @@ const StaffingSolutionsSection = () => {
           {/* Permanent workers */}
           <motion.div 
             variants={itemVariant}
-            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300"
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+              backgroundColor: "#3b82f6" 
+            }}
+            transition={{ duration: 0.3 }}
+            className="bg-blue-500 rounded-xl p-8 text-white shadow-lg transition-all duration-300 transform cursor-pointer"
           >
-            <div className="mb-6">
+            <div className="mb-6 transition-transform duration-300 group-hover:scale-110">
               <Handshake className="w-12 h-12 text-white/90" />
             </div>
             <h3 className="text-2xl font-bold mb-3">Permanent workers to join your team</h3>
