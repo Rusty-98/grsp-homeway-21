@@ -1,0 +1,105 @@
+
+import { useEffect, useRef } from 'react';
+
+const HeroSection = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const heroElements = heroRef.current?.querySelectorAll('.hero-animate');
+    heroElements?.forEach((el) => observer.observe(el));
+    
+    return () => {
+      heroElements?.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+  
+  return (
+    <section className="pt-28 pb-20 md:pt-36 md:pb-32 hero-gradient overflow-hidden" ref={heroRef}>
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center">
+          <div className="w-full lg:w-1/2 mb-12 lg:mb-0 lg:pr-8">
+            <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+              <span className="hero-animate opacity-0 inline-block px-3 py-1 bg-grsp-blue/10 text-grsp-blue rounded-full text-sm font-medium mb-4">
+                Connecting Talent with Opportunity
+              </span>
+              <h1 className="hero-animate opacity-0 text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+                Find Flexible Work <span className="bg-gradient-to-r from-grsp-blue to-grsp-darkblue bg-clip-text text-transparent">That Fits Your Life</span>
+              </h1>
+              <p className="hero-animate opacity-0 text-lg md:text-xl text-grsp-darkgray mb-8">
+                GRSP connects you with local jobs that match your skills and schedule. Discover better opportunities and gain control over your work life.
+              </p>
+              <div className="hero-animate opacity-0 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                <button className="px-8 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition">
+                  Get Started
+                </button>
+                <button className="px-8 py-3 border border-grsp-blue text-grsp-blue rounded-md font-medium hover:bg-grsp-blue/5 transition-colors">
+                  Learn More
+                </button>
+              </div>
+              <div className="hero-animate opacity-0 mt-8 flex items-center justify-center lg:justify-start space-x-4">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div 
+                      key={i}
+                      className="w-8 h-8 rounded-full border-2 border-white bg-grsp-gray flex items-center justify-center text-xs font-medium overflow-hidden"
+                    >
+                      {/* User avatar placeholders */}
+                      <span className="text-grsp-darkblue">{`U${i}`}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-sm text-grsp-darkgray">
+                  <span className="font-semibold">10,000+</span> users joined this month
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="w-full lg:w-1/2 relative">
+            <div className="hero-animate opacity-0 relative z-10 rounded-xl overflow-hidden shadow-2xl">
+              <div className="aspect-w-16 aspect-h-9">
+                <img 
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=2000&q=80" 
+                  alt="GRSP Platform Interface" 
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent rounded-xl"></div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="hero-animate opacity-0 absolute -top-8 -right-8 w-40 h-40 bg-grsp-blue/10 rounded-full blur-2xl"></div>
+            <div className="hero-animate opacity-0 absolute -bottom-12 -left-12 w-48 h-48 bg-grsp-lightblue/10 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+        
+        {/* Trusted by section */}
+        <div className="hero-animate opacity-0 mt-20 text-center">
+          <p className="text-sm uppercase text-grsp-darkgray font-medium tracking-wider mb-8">
+            Trusted by leading companies
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
+            {['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5'].map((company, i) => (
+              <div key={i} className="text-grsp-darkgray/60 font-semibold text-xl">
+                {company}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
