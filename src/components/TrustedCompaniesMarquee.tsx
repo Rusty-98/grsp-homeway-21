@@ -45,9 +45,9 @@ const TrustedCompaniesMarquee = () => {
   return (
     <section className="py-12 bg-gray-50" ref={containerRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <h3 className="text-center text-xl font-semibold text-grsp-darkgray mb-8 opacity-0 animate-fade-in">
-          Trusted by leading companies nationwide
-        </h3>
+        // <h3 className="text-center text-xl font-semibold text-grsp-darkgray mb-8 opacity-0 animate-fade-in">
+        //   Trusted by leading companies nationwide
+        // </h3>
         
         <div className="marquee-container overflow-hidden">
           <div className="flex marquee-content">

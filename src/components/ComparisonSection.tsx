@@ -1,9 +1,8 @@
-
 import { useEffect, useRef } from 'react';
 
 const ComparisonSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
+  const sectionRef = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -12,11 +11,7 @@ const ComparisonSection = () => {
             const elements = entry.target.querySelectorAll('.comparison-animate');
             elements.forEach((el, index) => {
               setTimeout(() => {
-                el.classList.add('animate-fade-in');
-                // Ensure visibility
-                setTimeout(() => {
-                  el.classList.add('opacity-100');
-                }, 600);
+                el.classList.add('animate-fade-in', 'opacity-100');
               }, index * 100);
             });
           }
@@ -24,11 +19,11 @@ const ComparisonSection = () => {
       },
       { threshold: 0.1 }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -36,127 +31,45 @@ const ComparisonSection = () => {
     };
   }, []);
 
+  const features = [
+    { name: 'Personalized matching', available: true },
+    { name: 'Background checks', available: true },
+    { name: 'Searchable user profiles with work history', available: true },
+    { name: 'Pro training', available: true },
+    { name: 'Pre-shift announcements', available: false },
+    { name: 'Geofencing & Pro-tracking', available: false },
+  ];
+
   return (
-    <section id="comparison" className="section-spacing bg-white py-20" ref={sectionRef}>
+    <section ref={sectionRef} className="section-spacing py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="comparison-animate opacity-0 text-4xl md:text-5xl font-bold mb-4">
-            The <span className="italic text-red-500">smarter choice</span> for staffing
+            The <span className="italic text-red-400">smarter choice</span> for staffing
           </h2>
-          <p className="comparison-animate opacity-0 text-lg text-grsp-darkgray max-w-3xl mx-auto">
-            Compare the old way of finding workers—full of phone calls, paperwork, and waiting
-            —to GRSP's approach that connects you with reliable workers, quickly.
+          <p className="comparison-animate opacity-0 text-lg text-gray-300 max-w-3xl mx-auto">
+            Compare traditional hiring methods to our modern approach.
           </p>
         </div>
-        
-        <div className="comparison-animate opacity-0 max-w-5xl mx-auto mt-12 overflow-hidden rounded-xl bg-slate-800 shadow-xl">
-          <div className="grid grid-cols-3 text-white">
-            <div className="p-6 border-r border-slate-700 flex items-center justify-center">
-              <div className="flex items-center text-2xl font-bold text-slate-400">
-                <span className="sr-only">GRSP Logo</span>
-                GRSP
-              </div>
-            </div>
-            <div className="p-6 border-r border-slate-700 flex items-center justify-center">
-              <div className="text-xl font-bold">GRSP</div>
-            </div>
-            <div className="p-6 flex items-center justify-center">
-              <div className="text-xl font-bold">Your staffing agency<sup>1</sup></div>
-            </div>
+
+        <div className="comparison-animate opacity-0 max-w-5xl mx-auto mt-12 overflow-hidden rounded-xl shadow-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 text-white divide-y sm:divide-x sm:divide-y-0 divide-gray-700 bg-gradient-to-r from-gray-800 to-gray-700">
+            <div className="p-6 font-bold text-gray-300 text-center sm:text-left">Features</div>
+            <div className="p-6 font-bold text-center">New Approach</div>
+            <div className="p-6 font-bold text-center">Traditional</div>
           </div>
-          
-          {/* Time to fill shifts */}
-          <div className="grid grid-cols-3 border-t border-slate-700">
-            <div className="p-6 border-r border-slate-700 bg-slate-900">
-              <p className="font-medium">Time to fill shifts</p>
-            </div>
-            <div className="p-6 border-r border-slate-700 flex items-center">
-              <p className="font-medium">Less than 24 hrs</p>
-            </div>
-            <div className="p-6 flex items-center">
-              <p className="font-medium">7-10 days</p>
-            </div>
-          </div>
-          
-          {/* Pro show rate */}
-          <div className="grid grid-cols-3 border-t border-slate-700">
-            <div className="p-6 border-r border-slate-700 bg-slate-900">
-              <p className="font-medium">Pro show rate</p>
-              <p className="text-sm text-slate-400 mt-1">Minimize no-shows with paid backups and proactive Pro communication</p>
-            </div>
-            <div className="p-6 border-r border-slate-700 flex items-center">
-              <p className="font-medium">98%</p>
-            </div>
-            <div className="p-6 flex items-center">
-              <p className="font-medium">50-60%</p>
-            </div>
-          </div>
-          
-          {/* Personalized matching */}
-          <div className="grid grid-cols-3 border-t border-slate-700">
-            <div className="p-6 border-r border-slate-700 bg-slate-900">
-              <p className="font-medium">Personalized matching</p>
-              <p className="text-sm text-slate-400 mt-1">Tailored for your unique needs based on work history, supervisor and peer feedback, ratings, certifications, quizzes</p>
-            </div>
-            <div className="p-6 border-r border-slate-700 flex items-center justify-center">
-              <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
+
+          {features.map((feature, index) => (
+            <div key={index} className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-x sm:divide-y-0 divide-gray-700 border-t border-gray-700 bg-gray-900 hover:bg-gray-800 transition-all">
+              <div className="p-6 text-center sm:text-left text-gray-300 font-medium">{feature.name}</div>
+              <div className={`p-6 flex items-center justify-center text-xl font-bold ${feature.available ? 'text-green-400' : 'text-red-400'}`}>
+                {feature.available ? '✅' : '❌'}
+              </div>
+              <div className={`p-6 flex items-center justify-center text-xl font-bold ${feature.available ? 'text-red-400' : 'text-green-400'}`}>
+                {feature.available ? '❌' : '✅'}
               </div>
             </div>
-            <div className="p-6 flex items-center justify-center">
-              <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          
-          {/* Background checks */}
-          <div className="grid grid-cols-3 border-t border-slate-700">
-            <div className="p-6 border-r border-slate-700 bg-slate-900">
-              <p className="font-medium">Background checks</p>
-              <p className="text-sm text-slate-400 mt-1">Background checks for all new Pros before their first shift</p>
-            </div>
-            <div className="p-6 border-r border-slate-700 flex items-center justify-center">
-              <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-              </div>
-            </div>
-            <div className="p-6 flex items-center justify-center">
-              <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          
-          {/* Searchable user profiles */}
-          <div className="grid grid-cols-3 border-t border-slate-700">
-            <div className="p-6 border-r border-slate-700 bg-slate-900">
-              <p className="font-medium">Searchable user profiles with work history</p>
-              <p className="text-sm text-slate-400 mt-1">Rich profiles with headshots, work history, ratings and references - easily searchable in your dashboard</p>
-            </div>
-            <div className="p-6 border-r border-slate-700 flex items-center justify-center">
-              <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-              </div>
-            </div>
-            <div className="p-6 flex items-center justify-center">
-              <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

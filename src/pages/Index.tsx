@@ -11,20 +11,18 @@ import BusinessSection from "../components/BusinessSection";
 import TeamMemberSection from "../components/TeamMemberSection";
 import TrustedCompaniesMarquee from "../components/TrustedCompaniesMarquee";
 import Footer from "../components/Footer";
+import ComparisonSection from "@/components/ComparisonSection";
 
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
-      <FeatureSection />
-      <BusinessSection />
+      <ComparisonSection />
       <StaffingSolutionsSection />
-      <StickyComparisonSection />
       <PerformanceStats />
       <TeamMemberSection />
+      <BusinessSection />
       <TestimonialsCarousel />
-      <TrustedCompaniesMarquee />
-      <ContactForm />
       <Footer />
     </div>
   );

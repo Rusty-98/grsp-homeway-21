@@ -221,8 +221,8 @@ const TeamMemberSection = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center mt-8">
-              <CarouselPrevious className="relative -left-0 top-0 translate-y-0 bg-white text-slate-800" />
-              <CarouselNext className="relative -right-0 top-0 translate-y-0 bg-white text-slate-800" />
+              <CarouselPrevious className="relative -left-0 top-0 translate-y-0 bg-white text-slate-800 mr-5" />
+              <CarouselNext className="relative -right-0 top-0 translate-y-0 bg-white text-slate-800 ml-5" />
             </div>
           </Carousel>
         </div>

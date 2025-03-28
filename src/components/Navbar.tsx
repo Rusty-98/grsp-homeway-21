@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -6,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen]  = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,28 +25,23 @@ const Navbar = () => {
 
   return (
     <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled 
-          ? 'py-3 glass-effect shadow-sm'
-          : 'py-5 bg-transparent'
-      )}
+    className={cn(
+      'fixed top-0 left-0 right-0 z-50 h-16 flex items-center transition-all duration-300 bg-white/10 backdrop-blur-xl shadow-md',
+      scrolled ? 'p-3' : 'py-5'
+    )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-grsp-blue to-grsp-darkblue bg-clip-text text-transparent">
+            <span className="text-3xl font-extrabold bg-gradient-to-r from-grsp-blue to-grsp-darkblue bg-clip-text text-transparent">
               GRSP
             </span>
           </Link>
           
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center font-bold space-x-1">
             <Link to="/#features" className="nav-item">Features</Link>
-            <Link to="/#performance" className="nav-item">Performance</Link>
             <Link to="/#testimonials" className="nav-item">Testimonials</Link>
-            <Link to="/#team" className="nav-item">Team Members</Link>
-            <Link to="/#comparison" className="nav-item">Comparison</Link>
-            <Link to="/#business" className="nav-item">For Business</Link>
+            <Link to="/#business" className="nav-item">For Business</Link>            
             <Link to="/about" className="nav-item">About Us</Link>
           </nav>
           
@@ -105,13 +99,7 @@ const Navbar = () => {
               >
                 Features
               </Link>
-              <Link 
-                to="/#performance" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                Performance
-              </Link>
+              
               <Link 
                 to="/#testimonials" 
                 className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
