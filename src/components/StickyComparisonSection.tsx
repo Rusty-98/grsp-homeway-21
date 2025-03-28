@@ -1,9 +1,9 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useIsMobile } from '../hooks/use-mobile';
+import { useMobile } from '../hooks/use-mobile';
 
 const StickyComparisonSection: React.FC = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useMobile();
   const sectionRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const [isSticky, setIsSticky] = useState(false);
