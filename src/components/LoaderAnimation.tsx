@@ -10,7 +10,7 @@ const LoaderAnimation = () => {
     // Simulate a loading delay and then hide the loader
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // 2.5 seconds delay
+    }, 1000); // 2.5 seconds delay
 
     return () => clearTimeout(timer);
   }, []);

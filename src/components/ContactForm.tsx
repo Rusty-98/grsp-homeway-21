@@ -321,7 +321,7 @@ const ContactForm = () => {
               </div>
               <div>
                 <p className="text-sm font-semibold mb-1">Need immediate assistance?</p>
-                <p className="text-lg font-bold">Call us: (800) 555-0123</p>
+                <p className="text-lg font-bold">Call us: +91 6393116990</p>
               </div>
             </div>
           </div>

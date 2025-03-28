@@ -44,8 +44,8 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">For Workers</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Find Jobs</a></li>
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Create Profile</a></li>
+            <li><a href="https://grsp.in/worker/aprofile.php" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Find Work</a></li>
+            <li><a href="https://grsp.in/worker/workerregister.php" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Create Profile</a></li>
               <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Worker Resources</a></li>
               <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Success Stories</a></li>
               <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Worker FAQ</a></li>
@@ -66,11 +66,10 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">About Us</a></li>
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Careers</a></li>
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Blog</a></li>
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Press</a></li>
-              <li><a href="#" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Contact Us</a></li>
+              <li><a href="/about" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">About Us</a></li>
+              <li><a href="#testimonials" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Testimonials</a></li>
+              <li><a href="#team" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Team</a></li>
+              <li><a href="#business" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Contact Us</a></li>
             </ul>
           </div>
         </div>

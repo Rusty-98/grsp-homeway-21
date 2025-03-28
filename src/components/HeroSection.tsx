@@ -135,7 +135,7 @@ className = "object-cover w-full h-full"
   <h3 className="text-2xl font-bold text-slate-800" > Ready to experience </h3>
     < p className = "text-2xl font-bold italic text-red-500" > the GRSP difference ? </p>
       < div className = "flex gap-3 mt-3" >
-        <span className="text-xs px-2 py-1 bg-blue-500 text-white rounded-full" > Sign Up </span>
+        <span className="text-xs px-2 py-1 bg-blue-500 text-white rounded-full" onClick={() => window.open('https://grsp.in/userlogin.php', '_blank')} > Sign Up </span>
           < span className = "text-xs px-2 py-1 border border-slate-300 rounded-full" > Get Demo </span>
             </div>
             </div>

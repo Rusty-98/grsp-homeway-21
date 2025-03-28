@@ -46,10 +46,10 @@ const Navbar = () => {
           </nav>
           
           <div className="hidden md:flex items-center space-x-4">
-            <button className="px-4 py-2 text-grsp-blue font-medium hover:text-grsp-darkblue transition-colors">
+            <button className="px-4 py-2 text-grsp-blue font-medium hover:text-grsp-darkblue transition-colors" onClick={() => window.open("https://grsp.in/userlogin.php", "_self")}>
               Log in
             </button>
-            <button className="px-4 py-2 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition">
+            <button className="px-4 py-2 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition" onClick={() => window.open("https://grsp.in/userregister.php", "_self")} >
               Sign up
             </button>
           </div>
@@ -82,71 +82,65 @@ const Navbar = () => {
       
       {/* Mobile menu with animation */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="md:hidden fixed inset-0 z-50 bg-white" 
-            style={{ top: '60px' }}
-          >
-            <nav className="flex flex-col p-4 space-y-4">
-              <Link 
-                to="/#features" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                Features
-              </Link>
-              
-              <Link 
-                to="/#testimonials" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                Testimonials
-              </Link>
-              <Link 
-                to="/#team" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                Team Members
-              </Link>
-              <Link 
-                to="/#comparison" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                Comparison
-              </Link>
-              <Link 
-                to="/#business" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                For Business
-              </Link>
-              <Link 
-                to="/about" 
-                className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
-                onClick={handleNavItemClick}
-              >
-                About Us
-              </Link>
-              <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">
-                <button className="w-full px-4 py-3 text-grsp-blue font-medium border border-grsp-blue rounded-md hover:bg-grsp-blue/5 transition-colors">
-                  Log in
-                </button>
-                <button className="w-full px-4 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors">
-                  Sign up
-                </button>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+  {mobileMenuOpen && (
+    <motion.div 
+      initial={{ x: '100%' }}
+      animate={{ x: 0 }}
+      exit={{ x: '100%' }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      className="md:hidden fixed inset-0 z-50 bg-white/10 shadow-lg" // Added bg-gray-100
+      style={{ top: '60px' }}
+    >
+      <nav className="flex flex-col p-4 space-y-4 bg-gray-100">
+        <Link 
+          to="/#features" 
+          className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+          onClick={handleNavItemClick}
+        >
+          Features
+        </Link>
+        
+        <Link 
+          to="/#testimonials" 
+          className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+          onClick={handleNavItemClick}
+        >
+          Testimonials
+        </Link>
+        <Link 
+          to="/#team" 
+          className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+          onClick={handleNavItemClick}
+        >
+          Team Members
+        </Link>
+
+        <Link 
+          to="/#business" 
+          className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+          onClick={handleNavItemClick}
+        >
+          For Business
+        </Link>
+        <Link 
+          to="/about" 
+          className="px-4 py-3 text-grsp-darkgray hover:bg-grsp-gray rounded-md"
+          onClick={handleNavItemClick}
+        >
+          About Us
+        </Link>
+        <div className="pt-4 border-t border-gray-200 flex flex-col space-y-3">
+          <button className="w-full px-4 py-3 text-grsp-blue font-medium border border-grsp-blue rounded-md hover:bg-grsp-blue/5 transition-colors" onClick={() => window.open("https://grsp.in/userlogin.php", "_self")} >
+            Log in
+          </button>
+          <button className="w-full px-4 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors" onClick={() => window.open("https://grsp.in/userregister.php", "_self")}>
+            Sign up
+          </button>
+        </div>
+      </nav>
+    </motion.div>
+  )}
+</AnimatePresence>
     </header>
   );
 };
