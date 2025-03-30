@@ -1,4 +1,3 @@
-
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200">
@@ -67,9 +66,9 @@ const Footer = () => {
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-2">
               <li><a href="/about" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">About Us</a></li>
-              <li><a href="#testimonials" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Testimonials</a></li>
-              <li><a href="#team" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Team</a></li>
-              <li><a href="#business" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Contact Us</a></li>
+              <li><a href="/#testimonials" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Testimonials</a></li>
+              <li><a href="/#team" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Team</a></li>
+              <li><a href="#/business" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Contact Us</a></li>
             </ul>
           </div>
         </div>
