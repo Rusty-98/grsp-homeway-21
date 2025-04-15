@@ -8,6 +8,7 @@ import BusinessSection from "../components/BusinessSection";
 import TeamMemberSection from "../components/TeamMemberSection";
 import Footer from "../components/Footer";
 import ComparisonSection from "@/components/ComparisonSection";
+import CompaniesSection from "@/components/CompaniesSection";
 
 const Index = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const Index = () => {
   const teamRef = useRef(null);
   const businessRef = useRef(null);
   const testimonialsRef = useRef(null);
+  const companiesRef = useRef(null);
 
   // Scroll to the section based on the URL hash
   useEffect(() => {
@@ -29,6 +31,7 @@ const Index = () => {
         features: comparisonRef,
         staffing: staffingRef,
         performance: performanceRef,
+        companies: companiesRef,
         team: teamRef,
         business: businessRef,
         testimonials: testimonialsRef,
@@ -55,6 +58,9 @@ const Index = () => {
       </div>
       <div ref={performanceRef}>
         <PerformanceStats />
+      </div>
+      <div ref={companiesRef}>
+        <CompaniesSection />
       </div>
       <div ref={teamRef}>
         <TeamMemberSection />

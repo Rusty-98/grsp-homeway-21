@@ -68,7 +68,18 @@ const HeroSection = () => {
     '/Standford-logo.webp',
   ]
 
+  const userImages = [
+    '/indian.png',
+    '/mocha.png',
+    '/tata.png',
+    '/hul.png'
+  ];
+
   const duplicatedCompanies = [...companies, ...companies]; // Duplicate for seamless loop
+
+  const handleClick = () => {
+    window.open('https://grsp.in/userlogin.php', '_self');  ;
+  };
 
   const testimonials = [
     { name: "John Smith", role: "HR Director", company: "TechGiant", comment: "Changed how we staff our events completely!" },
@@ -92,24 +103,24 @@ const HeroSection = () => {
                         GRSP matches you with skilled workers for temporary or permanent positions so you are never short staffed.
               </p>
                           < div className = "hero-animate flex flex-col sm:flex-row justify-center lg:justify-start gap-4" >
-                            <button className="px-8 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition" >
+                            <button className="px-8 py-3 bg-grsp-blue text-white rounded-md font-medium shadow-md hover:bg-grsp-darkblue transition-colors button-transition" onClick={handleClick} >
                               Get Started
                                 </button>
-                                < button className = "px-8 py-3 border border-grsp-blue text-grsp-blue rounded-md font-medium hover:bg-grsp-blue/5 transition-colors" >
+                                < button className = "px-8 py-3 border border-grsp-blue text-grsp-blue rounded-md font-medium hover:bg-grsp-blue/5 transition-colors" onClick={handleClick} >
                                   Get Demo
                                     </button>
                                     </div>
                                     < div className = "hero-animate mt-8 flex items-center justify-center lg:justify-start space-x-4" >
-                                      <div className="flex -space-x-2" >
-                                      {
-                                        [1, 2, 3, 4].map((i) => (
-                                          <div 
-                      key= { i }
-                      className = "w-8 h-8 rounded-full border-2 border-white bg-grsp-gray flex items-center justify-center text-xs font-medium overflow-hidden"
-                                          >
-                                          <span className="text-grsp-darkblue" > {`U${i}`} </span>
-                                        </div>
-                  ))}
+                                    <div className="flex -space-x-3">
+  {userImages.map((src, index) => (
+    <img 
+      key={index}
+      src={src}
+      alt={`User ${index + 1}`}
+      className="w-8 h-8 rounded-full border-2 border-blue-500 bg-white object-cover z-10"
+      style={{ zIndex: userImages.length - index }} // to stack in order
+    />
+  ))}
 </div>
   < div className = "text-sm text-grsp-darkgray" >
     <span className="font-semibold number-animate" > { count.toLocaleString() } + </span> businesses served this month

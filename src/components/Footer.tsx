@@ -68,7 +68,7 @@ const Footer = () => {
               <li><a href="/about" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">About Us</a></li>
               <li><a href="/#testimonials" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Testimonials</a></li>
               <li><a href="/#team" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Team</a></li>
-              <li><a href="#/business" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Contact Us</a></li>
+              <li><a href="/#business" className="text-grsp-darkgray hover:text-grsp-blue transition-colors">Contact Us</a></li>
             </ul>
           </div>
         </div>
